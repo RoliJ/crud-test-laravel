@@ -9,10 +9,15 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $customers = Customer::all();
-        return view('customers.index', compact('customers'));
+
+        if ($request->wantsJson()) {
+            return response()->json(['data' => $customers]);
+        } else {
+            return view('customers.index', compact('customers'));
+        }
     }
 
     public function create()

@@ -16,8 +16,8 @@ class StoreCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'date_of_birth' => 'required|date',
             'country_code' => 'required|string|size:2', // Assuming country_code is a 2-letter ISO code
             'phone_number' => ['required', 'string', new PhoneValidation($this->country_code)],

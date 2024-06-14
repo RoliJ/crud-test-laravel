@@ -1,7 +1,20 @@
 @extends('layouts.app')
 
+@section('title', 'Customer List')
+
 @section('content')
     <h1>Customers</h1>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <a href="{{ route('customers.create') }}">Create Customer</a>
     <table>
         <thead>
@@ -15,8 +28,8 @@
         <tbody>
             @foreach ($customers as $customer)
                 <tr>
-                    <td>{{ $customer->firstname }}</td>
-                    <td>{{ $customer->lastname }}</td>
+                    <td>{{ $customer->first_name }}</td>
+                    <td>{{ $customer->last_name }}</td>
                     <td>{{ $customer->email }}</td>
                     <td>
                         <a href="{{ route('customers.show', $customer) }}">View</a>

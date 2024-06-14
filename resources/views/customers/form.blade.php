@@ -1,10 +1,10 @@
 <div>
-    <label for="firstname">Firstname:</label>
-    <input type="text" id="firstname" name="firstname" value="{{ old('firstname', $customer->firstname ?? '') }}">
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name" value="{{ old('first_name', $customer->first_name ?? '') }}">
 </div>
 <div>
-    <label for="lastname">Lastname:</label>
-    <input type="text" id="lastname" name="lastname" value="{{ old('lastname', $customer->lastname ?? '') }}">
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name" value="{{ old('last_name', $customer->last_name ?? '') }}">
 </div>
 <div>
     <label for="date_of_birth">Date of Birth:</label>

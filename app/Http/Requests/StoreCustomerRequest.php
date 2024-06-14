@@ -21,7 +21,7 @@ class StoreCustomerRequest extends FormRequest
             'date_of_birth' => 'required|date',
             'country_code' => 'required|string|size:2', // Assuming country_code is a 2-letter ISO code
             'phone_number' => ['required', 'string', new PhoneValidation($this->country_code)],
-            'email' => 'required|email|unique:customers,email',
+            'email' => 'required|email:rfc,dns|unique:customers,email',
             'bank_account_number' => ['required', 'string', new BankAccountValidation],
         ];
     }

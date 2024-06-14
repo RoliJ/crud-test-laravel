@@ -21,7 +21,7 @@ class UpdateCustomerRequest extends FormRequest
             'date_of_birth' => 'sometimes|required|date',
             'country_code' => 'sometimes|required|string|size:2', // Assuming country_code is a 2-letter ISO code
             'phone_number' => ['sometimes', 'required', 'string', new PhoneValidation($this->country_code)],
-            'email' => 'sometimes|required|email|unique:customers,email,' . $this->customer->id,
+            'email' => 'sometimes|required|email:rfc,dns|unique:customers,email,' . $this->customer->id,
             'bank_account_number' => ['sometimes', 'required', 'string', new BankAccountValidation],
         ];
     }

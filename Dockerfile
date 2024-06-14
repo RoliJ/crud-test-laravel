@@ -30,14 +30,14 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 # Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Change current user to www-data
+# USER www-data
+
 # Copy existing application directory contents
 COPY . /var/www
 
 # Copy existing application directory permissions
-COPY --chown=www-data:www-data . /var/www
-
-# Change current user to www-data
-USER www-data
+# COPY --chown=www-data:www-data . /var/www
 
 # Expose port 8000 and start the PHP built-in server
 EXPOSE 8000

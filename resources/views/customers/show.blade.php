@@ -3,11 +3,17 @@
 @section('title', 'Customer Details')
 
 @section('content')
-    <h1>Customer Details</h1>
-    <p>Firstname: {{ $customer->first_name }}</p>
-    <p>Lastname: {{ $customer->last_name }}</p>
-    <p>Email: {{ $customer->email }}</p>
-    <p>Phone Number: {{ $customer->phone_number }}</p>
-    <p>Bank Account Number: {{ $customer->bank_account_number }}</p>
-    <a href="{{ route('customers.index') }}">Back to List</a>
+    <div class="card">
+        <div class="card-header">
+            <h1>Customer Details</h1>
+        </div>
+        <div class="card-body">
+            <p><strong>Firstname:</strong> {{ $customer->first_name }}</p>
+            <p><strong>Lastname:</strong> {{ $customer->last_name }}</p>
+            <p><strong>Email:</strong> {{ $customer->email }}</p>
+            <p><strong>Phone Number:</strong> {{ $customer->phone_number }}</p>
+            <p><strong>Bank Account Number:</strong> {{ $customer->bank_account_number }}</p>
+            <a href="{{ route('customers.index') }}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
 @endsection

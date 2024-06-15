@@ -13,6 +13,7 @@ class Customer extends Model
         'first_name',
         'last_name',
         'date_of_birth',
+        'country_code',
         'phone_number',
         'email',
         'bank_account_number',
@@ -21,4 +22,14 @@ class Customer extends Model
     protected $casts = [
         'date_of_birth' => 'date',
     ];
+
+    public function setDateOfBirthAttribute($value)
+    {
+        $this->attributes['date_of_birth'] = date('Y-m-d', strtotime($value));
+    }
+
+    public function getDateOfBirthAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
 }

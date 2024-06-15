@@ -13,6 +13,7 @@ class CreateCustomersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('date_of_birth');
+            $table->string('country_code', 2);
             $table->string('phone_number');
             $table->string('email')->unique();
             $table->string('bank_account_number');
